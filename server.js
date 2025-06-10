@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 
 // --- BAGIAN 2: SETUP APLIKASI DAN DATABASE ---
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const file = path.join(__dirname, 'db.json');
@@ -136,8 +136,4 @@ app.delete('/api/menu/:id', async (req, res) => {
 });
 
 
-// --- BAGIAN 7: MENJALANKAN SERVER ---
-app.listen(port, () => {
-    console.log(`🚀 Server berjalan di http://localhost:${port}`);
-    console.log('💾 Menggunakan database file: db.json');
-});
+export default app;
