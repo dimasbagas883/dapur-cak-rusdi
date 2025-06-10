@@ -64,11 +64,19 @@ initializeDatabase();
 
 // --- BAGIAN 6: SEMUA RUTE (ROUTES) APLIKASI ---
 
+// --- BAGIAN 6: SEMUA RUTE (ROUTES) APLIKASI ---
+
 // Rute Halaman
+// ▼▼▼ TAMBAHKAN BARIS INI ▼▼▼
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+
+// Rute lainnya yang sudah ada
 app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'public', 'login.html')));
 app.get('/admin', checkAdmin, (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin.html')));
-app.get('/lacak', (req, res) => res.sendFile(path.join(__dirname, 'public', 'lacak.html'))); // RUTE PENTING
+app.get('/lacak', (req, res) => res.sendFile(path.join(__dirname, 'public', 'lacak.html')));
 
+// Rute Proses Login
+// ... (sisa kode Anda)
 // Rute Proses Login
 app.post('/login', (req, res) => {
     if (req.body.password === ADMIN_PASSWORD) {
