@@ -1,0 +1,444 @@
+/* --- PONDASI & VARIABEL WARNA --- */
+:root {
+    --primary-color: #E86A33; /* Warna oranye yang hangat */
+    --secondary-color: #362222; /* Warna coklat tua untuk teks */
+    --background-color: #F8F9FA;
+    --surface-color: #FFFFFF;
+    --success-color: #28A745;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* --- GAYA UMUM --- */
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+h1, h2, h3 { 
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--success-color);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+
+/* --- KONTEN UTAMA & KARTU MENU --- */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+main .menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Pastikan dua blok kode ini ada di style.css Anda */
+
+.category-title {
+    width: 100%;
+    grid-column: 1 / -1; 
+    margin-top: 2rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.menu-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.menu-item {
+    background-color: var(--surface-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+}
+
+.menu-item-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-item-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.menu-item-content p {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    flex-grow: 1;
+}
+
+.menu-item-content button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.menu-item-content button:hover {
+    background-color: #c45525; /* Warna oranye lebih gelap */
+}
+
+/* --- MODAL / POP-UP KERANJANG --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 10% auto;
+    padding: 2rem;
+    border: none;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.total {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#checkout-form input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+#checkout-form button {
+    background-color: var(--success-color);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+#checkout-form button:hover {
+    background-color: #218838;
+}
+
+#order-status {
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: #f0f0f0; /* Warna latar belakang abu-abu muda */
+    border-top: 1px solid #e0e0e0;
+}
+
+.admin-login-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--secondary-color); /* Warna coklat tua, sama seperti teks */
+    color: white;
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-login-button:hover {
+    background-color: #5a4040; /* Warna coklat sedikit lebih terang saat disentuh */
+    transform: translateY(-2px);
+}
+
+/* --- Penyesuaian untuk Tombol dengan Ikon --- */
+
+button {
+    display: inline-flex;
+    align-items: center;     /* Membuat ikon & teks sejajar vertikal */
+    justify-content: center; /* Membuat ikon & teks di tengah tombol */
+    gap: 0.5rem;             /* Memberi jarak antara ikon dan teks */
+}
+
+.order-type-group {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    align-items: center;
+}
+.order-type-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+#checkout-form textarea {
+    width: calc(100% - 1.6rem); /* Menyesuaikan padding */
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    resize: vertical;
+}
+/* Tambahkan ini di paling bawah style.css */
+.status-baru { background-color: #5bc0de; }
+.status-sedang-diproses { background-color: #f0ad4e; }
+.status-selesai { background-color: var(--success-color); }
+.status-dibatalkan { background-color: #d9534f; }
+
+/* --- Style untuk Aksi di Header --- */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Jarak antara 'Lacak Pesanan' dan ikon keranjang */
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative; /* Diperlukan untuk efek garis bawah */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color); /* Warna berubah saat disentuh mouse */
+}
+
+/* Efek garis bawah animasi yang keren saat hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* CSS untuk Modal Pembayaran */
+.order-summary p { margin: 0.5rem 0; }
+.payment-methods { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+.payment-btn { padding: 0.8rem; border: 1px solid var(--primary-color); background-color: white; color: var(--primary-color); font-weight: bold; cursor: pointer; border-radius: 8px; }
+.payment-btn:hover { background-color: #fcefe6; }
+.spinner { margin: auto; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary-color); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.hero-section {
+    position: relative; /* Diperlukan untuk overlay */
+    height: 90vh; /* Tinggi section sebesar 90% dari tinggi layar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+    /* Ganti URL ini dengan gambar makanan favorit Anda! */
+    background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Membuat lapisan gelap semi-transparan agar teks mudah dibaca */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Pastikan konten (teks & tombol) berada di atas lapisan gelap */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: #eee;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px; /* Membuat tombol berbentuk pil */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #c45525;
+    transform: scale(1.05);
+}
+
+/* --- ANIMASI KARTU MENU SAAT SCROLL --- */
+
+.menu-item {
+    opacity: 0;
+    transform: translateY(20px); /* Mulai sedikit di bawah posisi aslinya */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.menu-item.show {
+    opacity: 1;
+    transform: translateY(0); /* Kembali ke posisi aslinya */
+}

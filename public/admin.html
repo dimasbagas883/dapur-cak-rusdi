@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Dasbor Restoran</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Sedikit style tambahan khusus untuk halaman admin */
+        body { padding: 2rem; background-color: #f8f9fa; }
+        main { max-width: 960px; margin: auto; }
+        h2 { text-align: center; font-size: 2rem; margin-top: 2rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; vertical-align: top;}
+        th { background-color: #f2f2f2; }
+        form { display: flex; flex-direction: column; gap: 1rem; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .actions button { margin-right: 0.5rem; padding: 0.3rem 0.6rem; font-size: 0.85rem; cursor: pointer;}
+        td ul { margin: 0; padding-left: 1.2rem; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Dashboard Admin</h1>
+
+        <h2>Tambah / Edit Menu</h2>
+        <form id="menu-form">
+            <input type="hidden" id="menu-id">
+            <input type="text" id="menu-name" placeholder="Nama Menu" required>
+            <input type="number" id="menu-price" placeholder="Harga" required>
+            <input type="text" id="menu-image" placeholder="URL Gambar" required>
+            <input type="text" id="menu-category" placeholder="Kategori (contoh: Makanan Berat)" required>
+            <button type="submit"><i class="bi bi-plus-circle-fill"></i> Tambah Menu</button>
+        </form>
+
+        <hr style="margin: 3rem 0;">
+
+        <h2>Daftar Menu</h2>
+        <table id="menu-table">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Kategori</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="menu-table-body">
+                </tbody>
+        </table>
+        <hr style="margin: 3rem 0;">
+
+        <h2>Daftar Pesanan Masuk</h2>
+        <table id="order-table">
+            <thead>
+    <tr>
+        <th>ID Pesanan</th>
+        <th>Pelanggan</th>
+        <th>Detail Pesanan</th>
+        <th>Total</th>
+        <th>Alamat / Meja</th>
+        <th>Status Bayar</th>
+        <th>Status Pesanan</th> <th>Tanggal</th>
+    </tr>
+</thead>
+            <tbody id="order-table-body">
+                </tbody>
+        </table>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{
+  "menuItems": [
+    {
+      "id": 1,
+      "name": "Nasi Goreng Spesial",
+      "price": 25000,
+      "image": "https://i.pinimg.com/736x/94/82/ab/9482ab2e248d249e7daa7fd6924c8d3b.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 2,
+      "name": "Sate Ayam Madura",
+      "price": 30000,
+      "image": "https://i.pinimg.com/736x/39/4a/1f/394a1f617445100857a584c51d7dd44e.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 3,
+      "name": "Soto Ayam Lamongan",
+      "price": 20000,
+      "image": "https://i.pinimg.com/736x/d9/14/ee/d914eedf08d2a7c9e1463b155fd471b0.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 4,
+      "name": "Es Teh Manis",
+      "price": 5000,
+      "image": "https://i.pinimg.com/736x/ab/30/7e/ab307ec373a3987d0151938bc9d4c5a1.jpg",
+      "category": "Minuman"
+    },
+    {
+      "id": 5,
+      "name": "Mie Goreng Jawa",
+      "price": 22000,
+      "image": "https://i.pinimg.com/736x/0f/76/e8/0f76e8e797bf5d4e40f004475ffdbe16.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 6,
+      "name": "Ayam Bakar Taliwang",
+      "price": 35000,
+      "image": "https://i.pinimg.com/736x/80/3c/bc/803cbcabba9e4f43b52ea660ac726b90.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 7,
+      "name": "Gado-Gado Betawi",
+      "price": 18000,
+      "image": "https://i.pinimg.com/736x/e9/b6/5b/e9b65b09e0c7c0e75dd634360abb2a43.jpg",
+      "category": "Makanan Ringan"
+    },
+    {
+      "id": 8,
+      "name": "Bakso Urat Spesial",
+      "price": 27000,
+      "image": "https://i.pinimg.com/736x/f7/6c/93/f76c93a3a23c2666e107ada4c4f33aec.jpg",
+      "category": "Makanan Berat"
+    },
+    {
+      "id": 9,
+      "name": "Es Jeruk Segar",
+      "price": 6000,
+      "image": "https://i.pinimg.com/736x/59/bb/fd/59bbfd2e5107ecc820fc0a8f39e1620f.jpg",
+      "category": "Minuman"
+    },
+    {
+      "id": 10,
+      "name": "Kopi Susu Gula Aren",
+      "price": 15000,
+      "image": "https://i.pinimg.com/736x/d5/e7/88/d5e788097e28dbafb5b7eb7c002e8acd.jpg",
+      "category": "Minuman"
+    },
+    {
+      "id": 11,
+      "name": "Teh Tarik Dingin",
+      "price": 12000,
+      "image": "https://i.pinimg.com/736x/9b/80/7e/9b807e48a293f8e97f866fd574f252fc.jpg",
+      "category": "Minuman"
+    },
+    {
+      "id": 12,
+      "name": "Pisang Goreng Keju",
+      "price": 10000,
+      "image": "https://i.pinimg.com/736x/cc/25/23/cc25236a216e164e3e0bc953af7f7baf.jpg",
+      "category": "Makanan Ringan"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "ORD-1749528704634",
+      "customerName": "MEMEK",
+      "items": [
+        {
+          "id": 8,
+          "name": "Bakso Urat Spesial",
+          "price": 27000,
+          "quantity": 1
+        }
+      ],
+      "total": 27000,
+      "orderType": "dine-in",
+      "locationInfo": "1",
+      "paymentStatus": "paid",
+      "status": "Baru",
+      "createdAt": "2025-06-10T04:11:44.634Z"
+    },
+    {
+      "orderId": "ORD-1749492951893",
+      "customerName": "makanan",
+      "items": [
+        {
+          "id": 3,
+          "name": "Soto Ayam Lamongan",
+          "price": 20000,
+          "quantity": 1
+        },
+        {
+          "id": 11,
+          "name": "Teh Tarik Dingin",
+          "price": 12000,
+          "quantity": 1
+        }
+      ],
+      "total": 32000,
+      "orderType": "dine-in",
+      "locationInfo": "2",
+      "paymentStatus": "paid",
+      "status": "Selesai",
+      "createdAt": "2025-06-09T18:15:51.893Z"
+    }
+  ]
+}
